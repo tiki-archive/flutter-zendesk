@@ -5,8 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'ui/support_modal_layout.dart';
-import 'ui/zendesk_flutter_layout.dart';
+import 'package:zendesk_flutter/ui/zendesk_flutter_layout.dart';
 import 'zendesk_flutter_service.dart';
 
 class ZendeskFlutterPresenter {
@@ -16,7 +15,7 @@ class ZendeskFlutterPresenter {
 
   ChangeNotifierProvider<ZendeskFlutterService> render() {
     return ChangeNotifierProvider.value(
-        value: service, child: ZendeskFlutterLayout());
+        value: service, child: const ZendeskFlutterLayout());
   }
 
   Future<void> showModal(BuildContext context) {

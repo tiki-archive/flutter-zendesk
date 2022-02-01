@@ -4,11 +4,11 @@
  */
 
 import 'package:flutter/widgets.dart';
+import 'package:zendesk_flutter/model/zendesk_flutter_article.dart';
+import 'package:zendesk_flutter/model/zendesk_flutter_category.dart';
+import 'package:zendesk_flutter/model/zendesk_flutter_model.dart';
+import 'package:zendesk_flutter/model/zendesk_flutter_section.dart';
 
-import 'model/zendesk_flutter_article.dart';
-import 'model/zendesk_flutter_category.dart';
-import 'model/zendesk_flutter_model.dart';
-import 'model/zendesk_flutter_section.dart';
 import 'zendesk_flutter_api.dart';
 import 'zendesk_flutter_controller.dart';
 import 'zendesk_flutter_presenter.dart';
@@ -20,38 +20,38 @@ class ZendeskFlutterService extends ChangeNotifier {
   final ZendeskFlutterApi zendeskApi = ZendeskFlutterApi();
 
   ZendeskFlutterService() {
-    this.presenter = ZendeskFlutterPresenter(this);
-    this.controller = ZendeskFlutterController(this);
-    this.model = ZendeskFlutterModel();
+    presenter = ZendeskFlutterPresenter(this);
+    controller = ZendeskFlutterController(this);
+    model = ZendeskFlutterModel();
     getCategories();
   }
 
   Future<void> getCategories() async {
-    this.model.data =
+    model.data =
         await zendeskApi.getZendeskCategories(includeSections: true);
-    this.model.category = null;
+    model.category = null;
     notifyListeners();
   }
 
   Future<void> getSectionsForCategory(ZendeskFlutterCategory category) async {
-    this.model.data = await zendeskApi.getZendeskSections(category.id,
+    model.data = await zendeskApi.getZendeskSections(category.id,
         includeArticles: true);
-    this.model.category = category;
+    model.category = category;
     notifyListeners();
   }
 
   Future<void> getArticlesForSection(ZendeskFlutterSection section) async {
-    this.model.data = await zendeskApi.getZendeskArticles(section.id,
+    model.data = await zendeskApi.getZendeskArticles(section.id,
         category: section.category);
-    this.model.section = section;
-    this.model.article = null;
+    model.section = section;
+    model.article = null;
     notifyListeners();
   }
 
   Future<void> getArticleById(ZendeskFlutterArticle article) async {
-    this.model.data = await zendeskApi.getZendeskArticle(article.id,
+    model.data = await zendeskApi.getZendeskArticle(article.id,
         section: article.section, category: article.category);
-    this.model.article = article;
+    model.article = article;
     notifyListeners();
   }
 }

@@ -1,13 +1,11 @@
 name: zendesk_flutter
-description: flutter lib for zendesk api
+description: A new Flutter project.
 version: 0.0.1
-homepage: https://mytiki.com
-repository: https://github.com/tiki/zendesk_flutter
-issue_tracker: https://github.com/tiki/zendesk_flutter/issues
+homepage:
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.20.0"
+  sdk: ">=2.15.1 <3.0.0"
+  flutter: ">=2.5.0"
 
 dependencies:
   flutter:
@@ -16,14 +14,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^1.0.0
+  intl: ^0.17.0
+  flutter_html: ^2.2.1
+  url_launcher: ^6.0.18
 
 flutter:
-  assets:
-    - packages/recover/res/images/pineapple-pizza.png
-    - packages/recover/res/images/avocado.png
-    - packages/recover/res/animation/creating.json
-    - packages/recover/res/animation/loading.json
-  fonts:
-    - family: RecoverIcons
-      fonts:
-        - asset: packages/recover/res/fonts/RecoverIcons.ttf
+  plugin:
+    platforms:
+      android:
+        package: com.mytiki.zendesk_flutter
+        pluginClass: ZendeskFlutterPlugin
+      ios:
+        pluginClass: ZendeskFlutterPlugin

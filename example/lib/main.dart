@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:logging/logging.dart';
-import 'package:recover/zendesk_flutter.dart';
+import 'package:zendesk_flutter/zendesk_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +13,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    Logger.root.level = Level.ALL;
-    Logger.root.onRecord.listen((record) => print(
-        '${record.time.toIso8601String()}: ${record.level.name} [${record.loggerName}] ${record.message}'));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +21,16 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(child: openModal()),
+        body: Center(child: OpenModal()),
       ),
     );
   }
 }
 
-class openModal extends StatelessWidget {
+class OpenModal extends StatelessWidget {
+
+  const OpenModal({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return TextButton(

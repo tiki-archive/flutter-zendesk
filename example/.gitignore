@@ -44,19 +44,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-# Android Properties
-/android/app/*.properties
-
-# Gradle
-.gradle/
-
-# Firebase
-**/GoogleService-Info.plist
-**/google-services.json
-
-# Android Signing
-**.jks
-
-# ios build folder
-ios/build
