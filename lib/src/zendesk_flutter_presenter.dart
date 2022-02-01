@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zendesk_flutter/ui/zendesk_flutter_layout.dart';
 import 'zendesk_flutter_service.dart';
+import 'zendesk_flutter_style.dart';
 
 class ZendeskFlutterPresenter {
   final ZendeskFlutterService service;
+  final ZendeskFlutterStyle style;
 
-  ZendeskFlutterPresenter(this.service);
+  ZendeskFlutterPresenter(this.service, this.style);
 
   ChangeNotifierProvider<ZendeskFlutterService> render() {
     return ChangeNotifierProvider.value(
@@ -23,9 +25,9 @@ class ZendeskFlutterPresenter {
         context: context,
         isScrollControlled: true,
         isDismissible: true,
-        backgroundColor: ConfigColor.greyTwo,
+        backgroundColor: style.backgroundColor,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(6.h))),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(style.modalRadius))),
         builder: (BuildContext context) => render());
   }
 }
