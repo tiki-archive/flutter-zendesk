@@ -41,10 +41,15 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 19
     }
+}
+repositories {
+    maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android:flexbox:2.0.1'
+    implementation group: 'com.zendesk', name: 'support', version: '5.0.5'
 }
