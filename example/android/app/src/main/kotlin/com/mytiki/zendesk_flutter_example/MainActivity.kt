@@ -9,7 +9,7 @@ import io.flutter.plugin.common.MethodChannel
 
 class MainActivity: FlutterActivity() {
 
-    private val channel = "com.mytiki.app"
+    private val channel = "com.mytiki.zendesk_flutter"
     private val zendeskApi: ZendeskApi = ZendeskApi()
 
 

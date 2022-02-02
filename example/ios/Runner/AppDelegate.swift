@@ -4,7 +4,7 @@ import Flutter
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
 
-  let channel : String = "com.mytiki.app"
+  let channel : String = "com.mytiki.zendesk_flutter"
     let zendeskApi = ZendeskApi()
 
   override func application(
@@ -24,6 +24,7 @@ import Flutter
             default : result(FlutterError(code: "-1", message: "Not implemented", details: nil))
           }
       })
+      
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
