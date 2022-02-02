@@ -7,7 +7,6 @@ import 'zendesk_flutter_view_box_subtitle.dart';
 import 'zendesk_flutter_view_box_title.dart';
 
 class ZendeskFlutterViewBox extends StatelessWidget {
-  static const double _cardMarginTop = 2.25;
   final dynamic data;
   final bool excerpt;
 
@@ -20,12 +19,12 @@ class ZendeskFlutterViewBox extends StatelessWidget {
         onTap: () => handleTap(context),
         child: Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(top: service.style.cardMarginTop),
+            margin: EdgeInsets.only(top: service.style.size(20)),
             padding: EdgeInsets.symmetric(
-                horizontal: service.style.cardHorizontalPadding,
-                vertical: service.style.cardVerticalPadding),
+                horizontal: service.style.size(20),
+                vertical: service.style.size(24)),
             decoration: BoxDecoration(
-                color: service.style.cardBackgroundColor,
+                color: service.style.cardBackground,
                 borderRadius: BorderRadius.circular(24)),
             child: Column(children: <Widget>[
               ZendeskFlutterViewBoxTitle(data),

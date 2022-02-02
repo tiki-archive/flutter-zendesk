@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_article.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_category.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_section.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
 
 
 class ZendeskFlutterApi {

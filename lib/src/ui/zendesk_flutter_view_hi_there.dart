@@ -19,13 +19,13 @@ class ZendeskFlutterViewHiThere extends StatelessWidget {
     return Container(
         alignment: Alignment.center,
         padding: EdgeInsets.only(
-          top: service.style.modalTopPadding,
+          top: service.style.size(24),
         ),
         child: Text(_text,
             style: TextStyle(
-                color: service.style.titleColor,
-                fontWeight: service.style.titleFontWeight,
+                color: service.style.accentColor,
+                fontWeight: FontWeight.bold,
                 fontFamily: service.style.titleFont,
-                fontSize: service.style.titleTextSize)));
+                fontSize: service.style.size(28))));
   }
 }

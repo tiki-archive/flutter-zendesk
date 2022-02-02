@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_article.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_category.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_section.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
 import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 
 class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
@@ -27,7 +27,7 @@ class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
       return TextSpan(
         text: text,
         style: TextStyle(
-            fontSize: service.style.subtitleTextSize,
+            fontSize: service.style.size(14),
             fontWeight: FontWeight.w600,
             color: color,
             fontFamily: service.style.subtitleFont),
@@ -54,8 +54,8 @@ class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
 
   Color getColor(dynamic data, ZendeskFlutterService service) {
     if (data is ZendeskFlutterCategory || data is ZendeskFlutterSection) {
-      return service.style.subtitleSectionColor;
+      return service.style.accentColor;
     }
-    return service.style.subtitleArticleColor;
+    return service.style.textColor;
   }
 }

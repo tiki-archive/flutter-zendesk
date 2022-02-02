@@ -5,9 +5,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_article.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_category.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_section.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
 import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 import 'zendesk_flutter_view_box.dart';
 import 'zendesk_flutter_view_breadcrumb.dart';
@@ -23,21 +23,21 @@ class ZendeskFlutterLayout extends StatelessWidget {
     ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
     return GestureDetector(
         child: SizedBox(
-            height: service.style.modalContainerHeight,
+            height: service.style.size(764),
             child: Column(mainAxisSize: MainAxisSize.min, children: [
-              ZendeskFlutterViewHeader(),
+              const ZendeskFlutterViewHeader(),
               Expanded(
                   child: SingleChildScrollView(
                       child: Padding(
                           padding: EdgeInsets.only(
-                              left: service.style.modalContainerPaddingHorizontal,
-                              right: service.style.modalContainerPaddingHorizontal,
-                              bottom: service.style.modalContainerPaddingBottom),
+                              left: service.style.size(25),
+                              right: service.style.size(25),
+                              bottom: service.style.size(16)),
                           child:
                               Column(mainAxisSize: MainAxisSize.min, children: [
-                            ZendeskFlutterViewHiThere(),
+                            const ZendeskFlutterViewHiThere(),
                             //ZendeskFlutterSearch(),
-                            ZendeskFlutterViewBreadcrumb(),
+                            const ZendeskFlutterViewBreadcrumb(),
                             Container(child: _getSupportContent(context)),
                           ]))))
             ])));
@@ -47,7 +47,7 @@ class ZendeskFlutterLayout extends StatelessWidget {
     ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
     if (service.model.data == null) {
       return Container(
-          padding: EdgeInsets.only(top: service.style.modalContentPadding),
+          padding: EdgeInsets.only(top: service.style.size(15)),
           child: const CircularProgressIndicator());
     }
     if (service.model.data is List<ZendeskFlutterCategory> ||

@@ -14,9 +14,9 @@ class ZendeskFlutterViewBoxTitle extends StatelessWidget {
         alignment: Alignment.centerLeft,
         child: Text(data.title ?? "",
             style: TextStyle(
-                color: service.style.titleColor,
-                fontSize: service.style.titleTextSize,
+                color: service.style.accentColor,
+                fontSize: service.style.size(24),
                 fontFamily: service.style.titleFont,
-                fontWeight: service.style.titleFontWeight)));
+                fontWeight: FontWeight.w700)));
   }
 }

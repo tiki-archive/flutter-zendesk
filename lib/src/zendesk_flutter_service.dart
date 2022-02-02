@@ -4,12 +4,12 @@
  */
 
 import 'package:flutter/widgets.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_article.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_category.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_model.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_section.dart';
-import 'package:zendesk_flutter/src/zendesk_flutter_style.dart';
+import 'zendesk_flutter_style.dart';
 
+import 'model/zendesk_flutter_article.dart';
+import 'model/zendesk_flutter_category.dart';
+import 'model/zendesk_flutter_model.dart';
+import 'model/zendesk_flutter_section.dart';
 import 'zendesk_flutter_api.dart';
 import 'zendesk_flutter_controller.dart';
 import 'zendesk_flutter_presenter.dart';
@@ -23,7 +23,7 @@ class ZendeskFlutterService extends ChangeNotifier {
   ZendeskFlutterStyle style;
 
   ZendeskFlutterService(this.style) {
-    presenter = ZendeskFlutterPresenter(this, this.style);
+    presenter = ZendeskFlutterPresenter(this, style);
     controller = ZendeskFlutterController(this);
     model = ZendeskFlutterModel();
     getCategories();

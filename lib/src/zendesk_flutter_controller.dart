@@ -5,9 +5,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_article.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_category.dart';
-import 'package:zendesk_flutter/model/zendesk_flutter_section.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
+import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
 
 import 'zendesk_flutter_service.dart';
 
@@ -33,7 +33,7 @@ class ZendeskFlutterController {
   }
 
   Future<void> launchUrl(String url) async {
-    if (!url.startsWith(RegExp('https?:/\/'))) {
+    if (!url.startsWith(RegExp('https?://'))) {
       url = "http://" + url;
     }
     await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';

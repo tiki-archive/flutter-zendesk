@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(child: OpenModal()),
+        body: const Center(child: OpenModal()),
       ),
     );
   }
@@ -35,7 +35,7 @@ class OpenModal extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () => ZendeskFlutter().show(context),
-        child: Text('Open Modal'));
+        child: const Text('Open Modal'));
   }
 
 }

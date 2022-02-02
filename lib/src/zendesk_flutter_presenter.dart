@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zendesk_flutter/ui/zendesk_flutter_layout.dart';
+import 'ui/zendesk_flutter_layout.dart';
 import 'zendesk_flutter_service.dart';
 import 'zendesk_flutter_style.dart';
 
@@ -25,9 +25,9 @@ class ZendeskFlutterPresenter {
         context: context,
         isScrollControlled: true,
         isDismissible: true,
-        backgroundColor: style.backgroundColor,
+        backgroundColor: style.modalNavColor,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(style.modalRadius))),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(style.size(36)))),
         builder: (BuildContext context) => render());
   }
 }
