@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zendesk_flutter/zendesk_flutter.dart';
+import 'package:zendesk_flutter/src/zendesk_flutter_style.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,8 +34,17 @@ class OpenModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ZendeskFlutterStyle style = ZendeskFlutterStyle(
+      cardBackground: Colors.white,
+      modalNavColor : const Color(0xFFF0F0F0),
+      textColor : const Color(0xFF8D8D8D),
+      accentColor : const Color(0xFF1C0000),
+      fontFamily : 'NunitoSans',
+      titleFont : 'Koara',
+      subtitleFont : 'NunitoSans'
+    );
     return TextButton(
-        onPressed: () => ZendeskFlutter().show(context),
+        onPressed: () => ZendeskFlutter(style: style).show(context),
         child: const Text('Open Modal'));
   }
 

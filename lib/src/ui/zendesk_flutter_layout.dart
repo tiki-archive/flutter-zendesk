@@ -23,7 +23,7 @@ class ZendeskFlutterLayout extends StatelessWidget {
     ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
     return GestureDetector(
         child: SizedBox(
-            height: service.style.size(764),
+            height: MediaQuery.of(context).size.height*0.8,
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               const ZendeskFlutterViewHeader(),
               Expanded(

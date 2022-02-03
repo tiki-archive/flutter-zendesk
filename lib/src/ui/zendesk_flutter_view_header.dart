@@ -17,51 +17,47 @@ class ZendeskFlutterViewHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
-    return Stack(children: [
-      GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () => Navigator.of(context).pop(),
-          child: Container(
-              alignment: Alignment.centerRight,
+    bool isBackActive =
+        service.model.data != null &&
+            service.model.data is! List<ZendeskFlutterCategory>;
+    return Padding(padding: EdgeInsets.only(top: service.style.size(24)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => isBackActive ? service.controller.navigateBack(context) : null,
               child: Container(
-                  width: service.style.size(25),
-                  height: service.style.size(25),
-                  padding: EdgeInsets.only(right: service.style.size(20)),
-                  child: Center(
-                      child: Image.asset(
-                        "res/images/icon-back",
-                        width: service.style.size(25),
-                        height: service.style.size(25),
-                      ))))),
-      if (service.model.data != null &&
-          service.model.data is! List<ZendeskFlutterCategory>)
-        GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () => service.controller.navigateBack(context),
-            child: Container(
-                alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
+                  child: Container(
+                      padding: EdgeInsets.only(left: service.style.size(25)),
+                      child: Center(
+                          child: isBackActive ? Image.asset(
+                              "res/images/icon-back.png",
+                              package: 'zendesk_flutter'
+                          ) : SizedBox.fromSize(
+                                size: Size(service.style.size(10),service.style.size(10))))))),
+          Container(
+              alignment: Alignment.center,
+              child: Text(_text,
+                  style: TextStyle(
+                      color: service.style.accentColor,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: service.style.fontFamily,
+                      fontSize: service.style.size(16)))),
+            GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => Navigator.of(context).pop(),
                 child: Container(
-                    width: service.style.size(25),
-                    height: service.style.size(25),
-                    padding: EdgeInsets.only(right: service.style.size(25)),
-                    child: Center(
-                        child: Image.asset(
-                      "res/images/icon-back",
-                      width: service.style.size(25),
-                      height: service.style.size(25),
-                      package: 'zendesk_flutter'
-                    ))))),
-      Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.only(
-            top: service.style.size(24),
-          ),
-          child: Text(_text,
-              style: TextStyle(
-                  color: service.style.accentColor,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: service.style.fontFamily,
-                  fontSize: service.style.size(16)))),
-    ]);
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                        padding: EdgeInsets.only(right: service.style.size(25)),
+                        child: Center(
+                            child: Image.asset(
+                              "res/images/icon-x.png",
+                              package: "zendesk_flutter",
+                            ))))),
+    ]));
   }
 }
