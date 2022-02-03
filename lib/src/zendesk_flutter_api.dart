@@ -5,7 +5,7 @@ import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
 
 
 class ZendeskFlutterApi {
-  static const _platform = MethodChannel('com.mytiki.app');
+  static const _platform = MethodChannel('com.mytiki.zendesk_flutter');
 
   Future<List<ZendeskFlutterCategory>> getZendeskCategories(
       {bool includeSections = false}) async {

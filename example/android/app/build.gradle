@@ -71,5 +71,5 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation group: 'com.zendesk', name: 'support', version: '5.0.6'
+    implementation group: 'com.zendesk', name: 'support', version: '5.0.5'
 }

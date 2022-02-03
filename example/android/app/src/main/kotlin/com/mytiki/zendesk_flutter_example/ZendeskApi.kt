@@ -71,7 +71,7 @@ class ZendeskApi {
         getArticle(
             articleId as Long,
             {sections -> result.success(sections)},
-            {error -> result.error(error.status.toString(), error.reason, error)}
+            {error -> result.error(error.status.toString(), error.reason, null)}
         )
     }
 
