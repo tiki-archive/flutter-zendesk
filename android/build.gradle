@@ -45,6 +45,8 @@ android {
     }
 }
 repositories {
+    jcenter()
+    mavenCentral()
     maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
 }
 

@@ -1,4 +1,4 @@
-package com.mytiki.app
+package com.mytiki.zendesk_flutter
 
 import android.content.Context
 import com.zendesk.logger.Logger
@@ -6,7 +6,6 @@ import com.zendesk.service.ErrorResponse
 import com.zendesk.service.ZendeskCallback
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import org.json.JSONObject
 import zendesk.core.AnonymousIdentity
 import zendesk.core.Identity
 import zendesk.core.Zendesk
@@ -26,7 +25,7 @@ class ZendeskApi {
         val appId = "12abbc10c46d1731876d529d0b90656cc81d416a9452d0be"
         val clientId = "mobile_sdk_client_3beab601d34d787fc05c"
 
-        Logger.setLoggable(true);
+        Logger.setLoggable(true)
         Zendesk.INSTANCE.init(context,
             url,
             appId,
@@ -78,7 +77,7 @@ class ZendeskApi {
     private fun getCategories(onSuccess: ListCallback<ArrayList<Map<String, Any>>>, onError: ErrorCallback){
         helpCenterProvider.getCategories( object: ZendeskCallback<List<Category>>(){
             override fun onSuccess(categories: List<Category>){
-                val cats : ArrayList<Map<String,Any>> = ArrayList<Map<String, Any>>()
+                val cats : ArrayList<Map<String,Any>> = ArrayList()
                 categories.forEach{
                     cats.add(processCategory(it)!!)
                 }
@@ -104,7 +103,7 @@ class ZendeskApi {
     private fun getSections(category: Long, onSuccess: ListCallback<ArrayList<Map<String, Any>?>>, onError: ErrorCallback){
         helpCenterProvider.getSections( category, object: ZendeskCallback<List<Section>>(){
             override fun onSuccess(sections: List<Section>){
-                val sectionList : ArrayList<Map<String, Any>?> = ArrayList<Map<String, Any>?>()
+                val sectionList : ArrayList<Map<String, Any>?> = ArrayList()
                 sections.forEach{
                     sectionList.add(
                         processSection(it)
@@ -132,7 +131,7 @@ class ZendeskApi {
     private fun getArticles(section: Long, onSuccess: ListCallback<ArrayList<Map<String,Any>?>>, onError: ErrorCallback){
         helpCenterProvider.getArticles( section, object: ZendeskCallback<List<Article>>(){
             override fun onSuccess(articles: List<Article>){
-                val articleList : ArrayList<Map<String, Any>?> = ArrayList<Map<String, Any>?>()
+                val articleList : ArrayList<Map<String, Any>?> = ArrayList()
                 articles.forEach{
                     articleList.add(processArticle(it))
                 }
@@ -161,7 +160,7 @@ class ZendeskApi {
                 "id"  to it.id!!,
                 "title"  to it.title!!,
                 "content"  to it.body!!,
-                "updatedAt"  to it.updatedAt!!.toString(),
+                "updatedAt"  to it.updatedAt!!.toString()
             )
         }
         return null
