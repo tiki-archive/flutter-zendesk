@@ -7,7 +7,7 @@
 
  import Foundation
  import Flutter
- import SupportSDK
+ import ZendeskSupportSDK
  import ZendeskCoreSDK
 
  class ZendeskApi {
