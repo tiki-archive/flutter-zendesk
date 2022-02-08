@@ -14,10 +14,10 @@ public class SwiftZendeskFlutterPlugin: NSObject, FlutterPlugin {
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
-            case "getZendeskCategories" : self.zendeskApi.getZendeskCategories(result: result)
-            case "getZendeskSections" : self.zendeskApi.getZendeskSections(call: call, result: result)
-            case "getZendeskArticles" : self.zendeskApi.getZendeskArticles(call: call, result: result)
-            case "getZendeskArticle" : self.zendeskApi.getZendeskArticle(call: call, result: result)
+            case "getZendeskCategories" : zendeskApi.getZendeskCategories(result: result)
+            case "getZendeskSections" : zendeskApi.getZendeskSections(call: call, result: result)
+            case "getZendeskArticles" : zendeskApi.getZendeskArticles(call: call, result: result)
+            case "getZendeskArticle" : zendeskApi.getZendeskArticle(call: call, result: result)
             default : result(FlutterError(code: "-1", message: "Not implemented", details: nil))
           }
   }

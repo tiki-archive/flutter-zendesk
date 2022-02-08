@@ -7,7 +7,7 @@
 
  import Foundation
  import Flutter
- import ZendeskSupportSDK
+ import SupportSDK
  import ZendeskCoreSDK
 
  class ZendeskApi {
@@ -85,9 +85,8 @@
      private func getCategories(onSuccess: @escaping  ([[String: Any]]) -> Void,
                                 onError: @escaping  (Error?) -> Void){
          helpcenterProvider.getCategoriesWithCallback({ anyOptinoalList, error -> Void in
-             guard let anyList = anyOptinoalList as? [Any],
-                   let anyObjectList = anyList as? [AnyObject],
-                   let categories = anyObjectList as? [ZDKHelpCenterCategory] else{
+             guard let anyList = anyOptinoalList,
+                   let categories = anyList as? [ZDKHelpCenterCategory] else{
                        let error = NSError(domain: "com.mytiki.app", code: -1, userInfo: ["en":"Could not convert element to ZDKHelCenterCategory"])
                        onError(error)
                        return

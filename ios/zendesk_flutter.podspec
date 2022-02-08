@@ -5,17 +5,15 @@
 Pod::Spec.new do |s|
   s.name             = 'zendesk_flutter'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter project.'
-  s.description      = <<-DESC
-A new Flutter project.
-                       DESC
-  s.homepage         = 'http://example.com'
+  s.summary          = 'flutter lib for zendesk api'
+  s.homepage         = 'https://mytiki.com'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'TIKI' => 'hello@mytiki.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'ZendeskSDK'
+  s.dependency 'ZendeskSupportSDK'
+  s.dependency 'ZendeskSupportProvidersSDK'
   s.platform = :ios, '10.0'
 
   # Flutter.framework does not contain a i386 slice.
