@@ -24,7 +24,8 @@ class ZendeskFlutterArticle {
   DateTime formatDate(String date) {
     if (Platform.isAndroid) {
       date = date.replaceRange(20, 30, '');
+      return DateFormat("EEE MMM dd HH:mm:ss yyyy").parse(date);
     }
-    return DateFormat("EEE MMM dd HH:mm:ss yyyy").parse(date);
+    return DateTime.fromMillisecondsSinceEpoch((num.parse(date) * 1000).round());
   }
 }
