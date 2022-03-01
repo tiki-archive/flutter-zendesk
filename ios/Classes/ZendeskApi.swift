@@ -162,8 +162,6 @@
      }
 
      private func getStringFromDate(date: Date) -> String?{
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "EEE MMM dd HH:mm:ss YYYY"
-         return dateFormatter.string(from: date)
+         return String(format: "%f", date.timeIntervalSince1970)
      }
  }
