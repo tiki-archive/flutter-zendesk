@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:style/style.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
 import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 
@@ -33,10 +34,8 @@ class ZendeskFlutterViewHeader extends StatelessWidget {
                   child: Container(
                       padding: EdgeInsets.only(left: service.style.size(25)),
                       child: Center(
-                          child: isBackActive ? Image.asset(
-                              "res/images/icon-back.png",
-                              package: 'zendesk_flutter'
-                          ) : SizedBox.fromSize(
+                          child: isBackActive ? const Icon(IconProvider.arrow_back, size: 20)
+                           : SizedBox.fromSize(
                                 size: Size(service.style.size(10),service.style.size(10))))))),
           Container(
               alignment: Alignment.center,
@@ -53,11 +52,9 @@ class ZendeskFlutterViewHeader extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: Container(
                         padding: EdgeInsets.only(right: service.style.size(25)),
-                        child: Center(
-                            child: Image.asset(
-                              "res/images/icon-x.png",
-                              package: "zendesk_flutter",
-                            ))))),
+                        child: const Center(
+                            child: Icon(IconProvider.close, size: 20)
+                            )))),
     ]));
   }
 }

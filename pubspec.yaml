@@ -16,7 +16,9 @@ dependencies:
   provider: ^6.0.2
   url_launcher: ^6.0.18
   flutter_html: ^2.2.1
-
+  style:
+    path: ../style
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -30,5 +32,3 @@ flutter:
         pluginClass: ZendeskFlutterPlugin
       ios:
         pluginClass: SwiftZendeskFlutterPlugin
-  assets:
-    - res/images/
