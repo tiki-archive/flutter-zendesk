@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:style/style.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
@@ -27,10 +28,11 @@ class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
       return TextSpan(
         text: text,
         style: TextStyle(
-            fontSize: service.style.size(14),
+            fontSize: SizeProvider.instance.size(14),
             fontWeight: FontWeight.w600,
             color: color,
-            fontFamily: service.style.subtitleFont),
+          fontFamily: TextProvider.familyNunitoSans,
+          package: 'style'),
       );
     }
     if (data is ZendeskFlutterSection) {
@@ -39,14 +41,16 @@ class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
       return TextSpan(
           text: text,
           style:
-              TextStyle(color: color, fontFamily: service.style.subtitleFont));
+              TextStyle(color: color, fontFamily: TextProvider.familyNunitoSans,
+                package: 'style',));
     }
     if (data is ZendeskFlutterArticle) {
       DateTime date = data.updatedAt;
       String publishedDate = DateFormat("dd MMMM yyyy").format(date);
       return TextSpan(
         text: "published on $publishedDate",
-        style: TextStyle(color: color, fontFamily: service.style.subtitleFont),
+        style: TextStyle(color: color,  fontFamily: TextProvider.familyNunitoSans,
+          package: 'style'),
       );
     }
     return const TextSpan(text: '');
@@ -54,8 +58,8 @@ class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
 
   Color getColor(dynamic data, ZendeskFlutterService service) {
     if (data is ZendeskFlutterCategory || data is ZendeskFlutterSection) {
-      return service.style.accentColor;
+      return ColorProvider.tikiBlue;
     }
-    return service.style.textColor;
+    return ColorProvider.tikiBlack;
   }
 }

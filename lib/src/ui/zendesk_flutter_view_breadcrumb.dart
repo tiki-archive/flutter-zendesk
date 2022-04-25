@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:style/style.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
@@ -17,17 +18,18 @@ class ZendeskFlutterViewBreadcrumb extends StatelessWidget {
     ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
     String text = _getBreadcrumbText(service);
     return Container(
-        padding: EdgeInsets.only(top: service.style.size(30)),
+        padding: EdgeInsets.only(top: SizeProvider.instance.size(30)),
         alignment: Alignment.centerLeft,
         child: Text(text,
             style: TextStyle(
                 color: service.model.data == null ||
                         service.model.data is List<ZendeskFlutterCategory>
-                    ? service.style.accentColor
-                    : service.style.textColor,
-                fontFamily: service.style.fontFamily,
+                    ? ColorProvider.tikiBlue
+                    : ColorProvider.tikiBlack,
+                fontFamily: TextProvider.familyNunitoSans,
+                package: 'style',
                 fontWeight: FontWeight.bold,
-                fontSize: service.style.size(16)),
+                fontSize: SizeProvider.instance.size(16)),
             textAlign: TextAlign.start));
   }
 
