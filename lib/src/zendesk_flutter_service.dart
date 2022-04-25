@@ -4,7 +4,6 @@
  */
 
 import 'package:flutter/widgets.dart';
-import 'zendesk_flutter_style.dart';
 
 import 'model/zendesk_flutter_article.dart';
 import 'model/zendesk_flutter_category.dart';
@@ -20,10 +19,8 @@ class ZendeskFlutterService extends ChangeNotifier {
   late final ZendeskFlutterModel model;
   final ZendeskFlutterApi zendeskApi = ZendeskFlutterApi();
 
-  ZendeskFlutterStyle style;
-
-  ZendeskFlutterService(this.style) {
-    presenter = ZendeskFlutterPresenter(this, style);
+  ZendeskFlutterService() {
+    presenter = ZendeskFlutterPresenter(this);
     controller = ZendeskFlutterController(this);
     model = ZendeskFlutterModel();
     getCategories();

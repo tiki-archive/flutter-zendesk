@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
+import 'package:style/style.dart';
 
 class ZendeskFlutterViewBoxTitle extends StatelessWidget {
   final dynamic data;
@@ -9,14 +8,14 @@ class ZendeskFlutterViewBoxTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
     return Container(
         alignment: Alignment.centerLeft,
         child: Text(data.title ?? "",
             style: TextStyle(
-                color: service.style.accentColor,
-                fontSize: service.style.size(24),
-                fontFamily: service.style.cardTitleFont,
+                color: ColorProvider.tikiBlue,
+                fontSize: SizeProvider.instance.size(24),
+                fontFamily: TextProvider.familyNunitoSans,
+                package: 'style',
                 fontWeight: FontWeight.w700)));
   }
 }
