@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:style/style.dart';
+import 'package:tiki_style/tiki_style.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
 import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 
@@ -34,7 +34,7 @@ class ZendeskFlutterViewHeader extends StatelessWidget {
                   child: Container(
                       padding: EdgeInsets.only(left: SizeProvider.instance.size(25)),
                       child: Center(
-                          child: isBackActive ? const Icon(IconProvider.arrow_back, size: 20)
+                          child: isBackActive ? const Icon(IconProvider.arrow_left, size: 20)
                            : SizedBox.fromSize(
                                 size: Size(SizeProvider.instance.size(10),SizeProvider.instance.size(10))))))),
           Container(
@@ -54,7 +54,7 @@ class ZendeskFlutterViewHeader extends StatelessWidget {
                     child: Container(
                         padding: EdgeInsets.only(right: SizeProvider.instance.size(25)),
                         child: const Center(
-                            child: Icon(IconProvider.close, size: 20)
+                            child: Icon(IconProvider.x, size: 20)
                             )))),
     ]));
   }

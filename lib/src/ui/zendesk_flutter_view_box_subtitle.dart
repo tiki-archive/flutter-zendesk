@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:style/style.dart';
+import 'package:tiki_style/tiki_style.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
