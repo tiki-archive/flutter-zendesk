@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:style/style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class ZendeskFlutterViewHiThere extends StatelessWidget {
   static const String _text = "Hi there 👋";
@@ -24,7 +24,7 @@ class ZendeskFlutterViewHiThere extends StatelessWidget {
                 color: ColorProvider.tikiBlue,
                 fontWeight: FontWeight.bold,
                 fontFamily: TextProvider.familyKoara,
-                package: 'style',
+                package: 'tiki_style',
                 fontSize: SizeProvider.instance.size(28))));
   }
 }
