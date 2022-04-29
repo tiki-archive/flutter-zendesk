@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:tiki_style/tiki_style.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
 import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 
@@ -20,7 +21,7 @@ class ZendeskFlutterViewHeader extends StatelessWidget {
     bool isBackActive =
         service.model.data != null &&
             service.model.data is! List<ZendeskFlutterCategory>;
-    return Padding(padding: EdgeInsets.only(top: service.style.size(24)),
+    return Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(24)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,33 +32,30 @@ class ZendeskFlutterViewHeader extends StatelessWidget {
               child: Container(
                   alignment: Alignment.center,
                   child: Container(
-                      padding: EdgeInsets.only(left: service.style.size(25)),
+                      padding: EdgeInsets.only(left: SizeProvider.instance.size(25)),
                       child: Center(
-                          child: isBackActive ? Image.asset(
-                              "res/images/icon-back.png",
-                              package: 'zendesk_flutter'
-                          ) : SizedBox.fromSize(
-                                size: Size(service.style.size(10),service.style.size(10))))))),
+                          child: isBackActive ? const Icon(IconProvider.arrow_tail_left, size: 20)
+                           : SizedBox.fromSize(
+                                size: Size(SizeProvider.instance.size(10),SizeProvider.instance.size(10))))))),
           Container(
               alignment: Alignment.center,
               child: Text(_text,
                   style: TextStyle(
-                      color: service.style.accentColor,
+                      color: ColorProvider.tikiBlue,
                       fontWeight: FontWeight.bold,
-                      fontFamily: service.style.fontFamily,
-                      fontSize: service.style.size(16)))),
+                      fontFamily: TextProvider.familyKoara,
+                      package: 'tiki_style',
+                      fontSize: SizeProvider.instance.size(16)))),
             GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.of(context).pop(),
                 child: Container(
                     alignment: Alignment.centerRight,
                     child: Container(
-                        padding: EdgeInsets.only(right: service.style.size(25)),
-                        child: Center(
-                            child: Image.asset(
-                              "res/images/icon-x.png",
-                              package: "zendesk_flutter",
-                            ))))),
+                        padding: EdgeInsets.only(right: SizeProvider.instance.size(25)),
+                        child: const Center(
+                            child: Icon(IconProvider.x, size: 20)
+                            )))),
     ]));
   }
 }

@@ -5,8 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:provider/provider.dart';
-import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class ZendeskFlutterViewHiThere extends StatelessWidget {
   static const String _text = "Hi there 👋";
@@ -15,17 +14,17 @@ class ZendeskFlutterViewHiThere extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
     return Container(
         alignment: Alignment.center,
         padding: EdgeInsets.only(
-          top: service.style.size(24),
+          top: SizeProvider.instance.size(24),
         ),
         child: Text(_text,
             style: TextStyle(
-                color: service.style.accentColor,
+                color: ColorProvider.tikiBlue,
                 fontWeight: FontWeight.bold,
-                fontFamily: service.style.titleFont,
-                fontSize: service.style.size(28))));
+                fontFamily: TextProvider.familyKoara,
+                package: 'tiki_style',
+                fontSize: SizeProvider.instance.size(28))));
   }
 }

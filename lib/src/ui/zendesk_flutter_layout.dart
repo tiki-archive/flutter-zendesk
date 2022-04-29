@@ -5,6 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tiki_style/tiki_style.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
 import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
@@ -20,7 +21,6 @@ class ZendeskFlutterLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
     return GestureDetector(
         child: SizedBox(
             height: MediaQuery.of(context).size.height*0.8,
@@ -30,9 +30,9 @@ class ZendeskFlutterLayout extends StatelessWidget {
                   child: SingleChildScrollView(
                       child: Padding(
                           padding: EdgeInsets.only(
-                              left: service.style.size(25),
-                              right: service.style.size(25),
-                              bottom: service.style.size(16)),
+                              left: SizeProvider.instance.size(25),
+                              right: SizeProvider.instance.size(25),
+                              bottom: SizeProvider.instance.size(16)),
                           child:
                               Column(mainAxisSize: MainAxisSize.min, children: [
                             const ZendeskFlutterViewHiThere(),
@@ -47,7 +47,7 @@ class ZendeskFlutterLayout extends StatelessWidget {
     ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
     if (service.model.data == null) {
       return Container(
-          padding: EdgeInsets.only(top: service.style.size(15)),
+          padding: EdgeInsets.only(top: SizeProvider.instance.size(15)),
           child: const CircularProgressIndicator());
     }
     if (service.model.data is List<ZendeskFlutterCategory> ||
