@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:style/style.dart';
+import 'package:tiki_style/tiki_style.dart';
 
 class ZendeskFlutterViewBoxTitle extends StatelessWidget {
   final dynamic data;
@@ -15,7 +15,7 @@ class ZendeskFlutterViewBoxTitle extends StatelessWidget {
                 color: ColorProvider.tikiBlue,
                 fontSize: SizeProvider.instance.size(24),
                 fontFamily: TextProvider.familyNunitoSans,
-                package: 'style',
+                package: 'tiki_style',
                 fontWeight: FontWeight.w700)));
   }
 }

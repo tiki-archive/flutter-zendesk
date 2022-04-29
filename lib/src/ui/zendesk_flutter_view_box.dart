@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:style/style.dart';
+import 'package:tiki_style/tiki_style.dart';
 import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 
 import 'zendesk_flutter_view_box_content.dart';

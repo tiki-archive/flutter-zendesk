@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:style/style.dart';
+import 'package:tiki_style/tiki_style.dart';
 import 'ui/zendesk_flutter_layout.dart';
 import 'zendesk_flutter_service.dart';
 
@@ -20,7 +20,7 @@ class ZendeskFlutterPresenter {
   }
 
   Future<void> showModal(BuildContext context) {
-    Style.init(context);
+    TikiStyle.init(context);
     return showModalBottomSheet<void>(
         context: context,
         isScrollControlled: true,
