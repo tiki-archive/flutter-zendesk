@@ -1,13 +1,12 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
+
+import 'helpdesk/service.dart';
 
 class ZendeskFlutter {
-  final ZendeskFlutterService _service;
+  final HelpdeskService _service;
 
   ZendeskFlutter() :
-        _service = ZendeskFlutterService();
+        _service = HelpdeskService();
 
-  show(BuildContext context) => _service.presenter.showModal(context);
+  void helpDesk(BuildContext context) => _service.presenter.showModal(context);
 }
