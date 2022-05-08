@@ -15,7 +15,9 @@ dependencies:
   intl: ^0.17.0
   provider: ^6.0.2
   url_launcher: ^6.0.18
+  html: ^0.15.0
   flutter_html: ^2.2.1
+  webview_flutter: ^2.0.4
   tiki_style: ^0.0.11
     
 dev_dependencies:
