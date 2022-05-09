@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-class ZendeskFlutterViewBoxTitle extends StatelessWidget {
+class HelpdeskUiBoxTitle extends StatelessWidget {
   final dynamic data;
 
-  const ZendeskFlutterViewBoxTitle(this.data, {Key? key}) : super(key: key);
+  const HelpdeskUiBoxTitle(this.data, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

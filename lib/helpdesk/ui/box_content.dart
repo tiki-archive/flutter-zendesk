@@ -6,19 +6,20 @@ import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:provider/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart' as webview;
-import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
+
+import '../service.dart';
 
 
-class ZendeskFlutterViewBoxContent extends StatelessWidget {
+class HelpdeskUiBoxContent extends StatelessWidget {
   final dynamic data;
   final bool excerpt;
 
-  const ZendeskFlutterViewBoxContent(this.data, {Key? key, this.excerpt = true}) : super(key: key);
+  const HelpdeskUiBoxContent(this.data, {Key? key, this.excerpt = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     String content = excerpt ? _getExcerpt(data.content) : data.content;
-    ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
+    HelpdeskService service = Provider.of<HelpdeskService>(context);
     return Container(
         alignment: Alignment.centerLeft,
         child: Html(

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiki_style/tiki_style.dart';
-import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 
-import 'zendesk_flutter_view_box_content.dart';
-import 'zendesk_flutter_view_box_subtitle.dart';
-import 'zendesk_flutter_view_box_title.dart';
+import '../service.dart';
+import 'box_content.dart';
+import 'box_subtitle.dart';
+import 'box_title.dart';
 
-class ZendeskFlutterViewBox extends StatelessWidget {
+class HelpdeskUiBox extends StatelessWidget {
   final dynamic data;
   final bool excerpt;
 
-  const ZendeskFlutterViewBox(this.data, {Key? key, this.excerpt = true}) : super(key: key);
+  const HelpdeskUiBox(this.data, {Key? key, this.excerpt = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +27,15 @@ class ZendeskFlutterViewBox extends StatelessWidget {
                 color: ColorProvider.white,
                 borderRadius: BorderRadius.circular(24)),
             child: Column(children: <Widget>[
-              ZendeskFlutterViewBoxTitle(data),
-              ZendeskFlutterViewBoxSubtitle(data),
-              ZendeskFlutterViewBoxContent(data, excerpt: excerpt)
+              HelpdeskUiBoxTitle(data),
+              HelpdeskUiBoxSubtitle(data),
+              HelpdeskUiBoxContent(data, excerpt: excerpt)
             ])));
   }
 
   handleTap(BuildContext context) {
-    ZendeskFlutterService service =
-        Provider.of<ZendeskFlutterService>(context, listen: false);
+    HelpdeskService service =
+        Provider.of<HelpdeskService>(context, listen: false);
     service.controller.onBoxTap(data);
   }
 }

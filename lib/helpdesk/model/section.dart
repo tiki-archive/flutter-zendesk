@@ -1,18 +1,18 @@
-import 'zendesk_flutter_article.dart';
+import 'article.dart';
 
-class ZendeskFlutterSection {
+class HelpdeskSection {
   late num id;
   late num parentId;
   late String title;
   late String category;
   late String content;
-  late List<ZendeskFlutterArticle> articles;
+  late List<HelpdeskArticle> articles;
 
-  ZendeskFlutterSection.fromMap(Map map) {
+  HelpdeskSection.fromMap(Map map) {
     id = map['id'];
     title = map['title'];
     content = map['description'];
     category = map['category'] ?? '';
-    articles = map['articles'] ?? <ZendeskFlutterArticle>[];
+    articles = map['articles'] ?? <HelpdeskArticle>[];
   }
 }

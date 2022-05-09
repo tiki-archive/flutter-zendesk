@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:tiki_style/tiki_style.dart';
-import 'package:zendesk_flutter/src/model/zendesk_flutter_article.dart';
-import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
-import 'package:zendesk_flutter/src/model/zendesk_flutter_section.dart';
-import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 
-class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
+import '../model/article.dart';
+import '../model/category.dart';
+import '../model/section.dart';
+import '../service.dart';
+
+class HelpdeskUiBoxSubtitle extends StatelessWidget {
   final dynamic data;
 
-  const ZendeskFlutterViewBoxSubtitle(this.data, {Key? key}) : super(key: key);
+  const HelpdeskUiBoxSubtitle(this.data, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +21,9 @@ class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
   }
 
   TextSpan getSubtitle(BuildContext context) {
-    ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
+    HelpdeskService service = Provider.of<HelpdeskService>(context);
     Color color = getColor(data, service);
-    if (data is ZendeskFlutterCategory) {
+    if (data is HelpdeskCategory) {
       num count = data.sections.length;
       String text = count.toString() + " sections";
       return TextSpan(
@@ -35,7 +36,7 @@ class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
           package: 'style'),
       );
     }
-    if (data is ZendeskFlutterSection) {
+    if (data is HelpdeskSection) {
       num count = data.articles.length;
       String text = count.toString() + " articles";
       return TextSpan(
@@ -44,22 +45,24 @@ class ZendeskFlutterViewBoxSubtitle extends StatelessWidget {
               TextStyle(color: color, fontFamily: TextProvider.familyNunitoSans,
                 package: 'tiki_style',));
     }
-    if (data is ZendeskFlutterArticle) {
+    if (data is HelpdeskArticle) {
       DateTime date = data.updatedAt;
       String publishedDate = DateFormat("dd MMMM yyyy").format(date);
       return TextSpan(
         text: "published on $publishedDate",
-        style: TextStyle(color: color,  fontFamily: TextProvider.familyNunitoSans,
-          package: 'style'),
+        style: TextStyle(color: color,
+            fontFamily: TextProvider.familyNunitoSans,
+            package: 'style',
+            fontWeight: color == ColorProvider.greyFive ? FontWeight.bold : FontWeight.normal),
       );
     }
     return const TextSpan(text: '');
   }
 
-  Color getColor(dynamic data, ZendeskFlutterService service) {
-    if (data is ZendeskFlutterCategory || data is ZendeskFlutterSection) {
+  Color getColor(dynamic data, HelpdeskService service) {
+    if (data is HelpdeskCategory || data is HelpdeskSection) {
       return ColorProvider.tikiBlue;
     }
-    return ColorProvider.tikiBlack;
+    return ColorProvider.greyFive;
   }
 }
