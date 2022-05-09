@@ -50,8 +50,10 @@ class HelpdeskUiBoxSubtitle extends StatelessWidget {
       String publishedDate = DateFormat("dd MMMM yyyy").format(date);
       return TextSpan(
         text: "published on $publishedDate",
-        style: TextStyle(color: color,  fontFamily: TextProvider.familyNunitoSans,
-          package: 'style'),
+        style: TextStyle(color: color,
+            fontFamily: TextProvider.familyNunitoSans,
+            package: 'style',
+            fontWeight: color == ColorProvider.greyFive ? FontWeight.bold : FontWeight.normal),
       );
     }
     return const TextSpan(text: '');
@@ -61,6 +63,6 @@ class HelpdeskUiBoxSubtitle extends StatelessWidget {
     if (data is HelpdeskCategory || data is HelpdeskSection) {
       return ColorProvider.tikiBlue;
     }
-    return ColorProvider.tikiBlack;
+    return ColorProvider.greyFive;
   }
 }

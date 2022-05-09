@@ -26,11 +26,11 @@ class HelpdeskUiBreadcrumb extends StatelessWidget {
                 color: service.model.data == null ||
                         service.model.data is List<HelpdeskCategory>
                     ? ColorProvider.tikiBlue
-                    : ColorProvider.tikiBlack,
+                    : ColorProvider.greyFive,
                 fontFamily: TextProvider.familyNunitoSans,
                 package: 'tiki_style',
                 fontWeight: FontWeight.w700,
-                fontSize: SizeProvider.instance.size(14)),
+                fontSize: SizeProvider.instance.size(16)),
             textAlign: TextAlign.start));
   }
 

@@ -35,7 +35,7 @@ class HelpdeskUiHeader extends StatelessWidget {
                   child: Container(
                       padding: EdgeInsets.only(left: SizeProvider.instance.size(25)),
                       child: Center(
-                          child: isBackActive ? const Icon(IconProvider.arrow_tail_left, size: 20)
+                          child: isBackActive ? const Icon(IconProvider.arrow_left, size: 20)
                            : SizedBox.fromSize(
                                 size: Size(SizeProvider.instance.size(10),SizeProvider.instance.size(10))))))),
           Container(
