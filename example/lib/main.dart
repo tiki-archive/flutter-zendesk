@@ -34,7 +34,7 @@ class OpenModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () => ZendeskFlutter().show(context),
+        onPressed: () => ZendeskFlutter().helpDesk(context),
         child: const Text('Open Modal'));
   }
 

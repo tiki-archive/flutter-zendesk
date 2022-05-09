@@ -7,20 +7,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:tiki_style/tiki_style.dart';
-import 'package:zendesk_flutter/src/model/zendesk_flutter_category.dart';
-import 'package:zendesk_flutter/src/zendesk_flutter_service.dart';
 
-class ZendeskFlutterViewHeader extends StatelessWidget {
+import '../model/category.dart';
+import '../service.dart';
+
+class HelpdeskUiHeader extends StatelessWidget {
   static const String _text = "Help Center";
 
-  const ZendeskFlutterViewHeader({Key? key}) : super(key: key);
+  const HelpdeskUiHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ZendeskFlutterService service = Provider.of<ZendeskFlutterService>(context);
+    HelpdeskService service = Provider.of<HelpdeskService>(context);
     bool isBackActive =
         service.model.data != null &&
-            service.model.data is! List<ZendeskFlutterCategory>;
+            service.model.data is! List<HelpdeskCategory>;
     return Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(24)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:intl/intl.dart';
 
-class ZendeskFlutterArticle {
+class HelpdeskArticle {
   late num id;
   late num parentId;
   late String title;
@@ -11,7 +11,7 @@ class ZendeskFlutterArticle {
   late String content;
   late DateTime? updatedAt;
 
-  ZendeskFlutterArticle.fromMap(Map map) {
+  HelpdeskArticle.fromMap(Map map) {
     id = map['id'];
     title = map['title'];
     content = map['content'] ?? '';

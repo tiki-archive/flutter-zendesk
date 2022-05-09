@@ -3,21 +3,22 @@
  * MIT license. See LICENSE file in root directory.
  */
 
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiki_style/tiki_style.dart';
 
-import 'ui/zendesk_flutter_layout.dart';
-import 'zendesk_flutter_service.dart';
+import 'service.dart';
+import 'ui/layout.dart';
 
-class ZendeskFlutterPresenter {
-  final ZendeskFlutterService service;
+class HelpdeskPresenter {
+  final HelpdeskService service;
 
-  ZendeskFlutterPresenter(this.service);
+  HelpdeskPresenter(this.service);
 
-  ChangeNotifierProvider<ZendeskFlutterService> render() {
+  ChangeNotifierProvider<HelpdeskService> render() {
     return ChangeNotifierProvider.value(
-        value: service, child: const ZendeskFlutterLayout());
+        value: service, child: const HelpdeskLayout());
   }
 
   Future<void> showModal(BuildContext context) => showModalBottomSheet<void>(
