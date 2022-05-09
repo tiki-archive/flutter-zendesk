@@ -29,8 +29,8 @@ class HelpdeskUiBreadcrumb extends StatelessWidget {
                     : ColorProvider.tikiBlack,
                 fontFamily: TextProvider.familyNunitoSans,
                 package: 'tiki_style',
-                fontWeight: FontWeight.bold,
-                fontSize: SizeProvider.instance.size(16)),
+                fontWeight: FontWeight.w700,
+                fontSize: SizeProvider.instance.size(14)),
             textAlign: TextAlign.start));
   }
 

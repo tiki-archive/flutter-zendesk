@@ -21,10 +21,17 @@ class HelpdeskLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        child: SizedBox(
-            height: MediaQuery.of(context).size.height*0.8,
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
+    return SizedBox(
+            height: MediaQuery.of(context).size.height*0.94,
+            child: Container(
+                decoration: BoxDecoration(
+                    color: ColorProvider.greyOne,
+                    borderRadius:  BorderRadius.only(
+                      topLeft: Radius.circular(SizeProvider.instance.size(36)),
+                      topRight: Radius.circular(SizeProvider.instance.size(36)),
+                    )
+                ),
+                child: Column(mainAxisSize: MainAxisSize.min, children: [
               const HelpdeskUiHeader(),
               Expanded(
                   child: SingleChildScrollView(

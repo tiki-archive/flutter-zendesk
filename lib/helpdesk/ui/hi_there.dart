@@ -17,11 +17,11 @@ class HelpdeskUiHiThere extends StatelessWidget {
     return Container(
         alignment: Alignment.center,
         padding: EdgeInsets.only(
-          top: SizeProvider.instance.size(24),
+          top: SizeProvider.instance.size(45),
         ),
         child: Text(_text,
             style: TextStyle(
-                color: ColorProvider.tikiBlue,
+                color: ColorProvider.tikiPurple,
                 fontWeight: FontWeight.bold,
                 fontFamily: TextProvider.familyKoara,
                 package: 'tiki_style',
