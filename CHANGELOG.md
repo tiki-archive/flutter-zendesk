@@ -1,3 +1,7 @@
+## 0.0.5
+
+* design update
+
 ## 0.0.4
 
 * bump tiki_style
