@@ -22,7 +22,7 @@ class HelpdeskUiHeader extends StatelessWidget {
     bool isBackActive =
         service.model.data != null &&
             service.model.data is! List<HelpdeskCategory>;
-    return Padding(padding: EdgeInsets.only(top: SizeProvider.instance.size(24)),
+    return Padding(padding: EdgeInsets.only(top: SizeProvider.instance.height(24)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,15 +35,15 @@ class HelpdeskUiHeader extends StatelessWidget {
                   child: Container(
                       padding: EdgeInsets.only(left: SizeProvider.instance.size(25)),
                       child: Center(
-                          child: isBackActive ? const Icon(IconProvider.arrow_tail_left, size: 20)
+                          child: isBackActive ? const Icon(IconProvider.arrow_left, size: 20)
                            : SizedBox.fromSize(
                                 size: Size(SizeProvider.instance.size(10),SizeProvider.instance.size(10))))))),
           Container(
               alignment: Alignment.center,
               child: Text(_text,
                   style: TextStyle(
-                      color: ColorProvider.tikiBlue,
-                      fontWeight: FontWeight.bold,
+                      color: ColorProvider.tikiPurple,
+                      fontWeight: FontWeight.w600,
                       fontFamily: TextProvider.familyKoara,
                       package: 'tiki_style',
                       fontSize: SizeProvider.instance.size(16)))),
@@ -55,7 +55,7 @@ class HelpdeskUiHeader extends StatelessWidget {
                     child: Container(
                         padding: EdgeInsets.only(right: SizeProvider.instance.size(25)),
                         child: const Center(
-                            child: Icon(IconProvider.x, size: 20)
+                            child: Icon(IconProvider.x, size: 18)
                             )))),
     ]));
   }

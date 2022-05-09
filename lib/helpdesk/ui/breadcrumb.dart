@@ -18,19 +18,20 @@ class HelpdeskUiBreadcrumb extends StatelessWidget {
   Widget build(BuildContext context) {
     HelpdeskService service = Provider.of<HelpdeskService>(context);
     String text = _getBreadcrumbText(service);
+    bool isHome = service.model.data == null ||
+        service.model.data is List<HelpdeskCategory>;
     return Container(
         padding: EdgeInsets.only(top: SizeProvider.instance.size(30)),
         alignment: Alignment.centerLeft,
         child: Text(text,
             style: TextStyle(
-                color: service.model.data == null ||
-                        service.model.data is List<HelpdeskCategory>
+                color: isHome
                     ? ColorProvider.tikiBlue
-                    : ColorProvider.tikiBlack,
+                    : ColorProvider.greyFive,
                 fontFamily: TextProvider.familyNunitoSans,
                 package: 'tiki_style',
-                fontWeight: FontWeight.bold,
-                fontSize: SizeProvider.instance.size(16)),
+                fontWeight: isHome ? FontWeight.w600 : FontWeight.w700,
+                fontSize: isHome ? SizeProvider.instance.size(14) : SizeProvider.instance.size(16) ),
             textAlign: TextAlign.start));
   }
 
