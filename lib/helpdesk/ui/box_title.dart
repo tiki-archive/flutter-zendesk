@@ -16,6 +16,6 @@ class HelpdeskUiBoxTitle extends StatelessWidget {
                 fontSize: SizeProvider.instance.size(24),
                 fontFamily: TextProvider.familyNunitoSans,
                 package: 'tiki_style',
-                fontWeight: FontWeight.w700)));
+                fontWeight: FontWeight.w600)));
   }
 }

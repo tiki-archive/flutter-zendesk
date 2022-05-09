@@ -2,9 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:html/dom.dart';
+import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:provider/provider.dart';
+import 'package:tiki_style/tiki_style.dart';
 import 'package:webview_flutter/webview_flutter.dart' as webview;
 
 import '../service.dart';
@@ -18,12 +19,11 @@ class HelpdeskUiBoxContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String content = excerpt ? _getExcerpt(data.content) : data.content;
     HelpdeskService service = Provider.of<HelpdeskService>(context);
     return Container(
         alignment: Alignment.centerLeft,
-        child: Html(
-            data: content,
+        child: excerpt ? _getExcerpt(data.content)  : Html(
+            data: data.content,
             onLinkTap: (String? url, _, __, ___) {
               if (url != null) service.controller.launchUrl(url);
             },
@@ -59,13 +59,19 @@ class HelpdeskUiBoxContent extends StatelessWidget {
         : webview.NavigationDecision.prevent;
   }
 
-  String _getExcerpt(String text) {
-    Document document = parse(text);
+  Widget _getExcerpt(String text) {
+    dom.Document document = parse(text);
     String parsedString =
         parse(document.body?.text).documentElement?.text ?? '';
-    if (parsedString.length < 100) return text;
-    int indexOfSpace = parsedString.substring(0, 100).lastIndexOf(' ');
-    return parsedString.substring(0, indexOfSpace) + '...';
+    int lastIndex = parsedString.length > 100 ? parsedString.substring(0, 100).lastIndexOf(' ') : 0;
+    String content = parsedString.length > 100 ? parsedString.substring(0, lastIndex) + '...' : parsedString;
+    return Padding(
+        padding:EdgeInsets.only(top: SizeProvider.instance.size(10)),
+        child: Text( content, style: const TextStyle(
+           fontFamily: TextProvider.familyNunitoSans,
+           fontWeight: FontWeight.w500,
+          color: ColorProvider.tikiBlue
+    )));
   }
 
   Set<Factory<OneSequenceGestureRecognizer>> _gestureRecognizerFactorySet() {
