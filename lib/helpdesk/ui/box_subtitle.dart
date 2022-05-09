@@ -48,13 +48,21 @@ class HelpdeskUiBoxSubtitle extends StatelessWidget {
     if (data is HelpdeskArticle) {
       if (service.model.data is List<HelpdeskArticle> && service.model.section?.title != null ) {
         return TextSpan(
-          text: "published in ${service.model.section!.title}",
+          text: "published in ",
           style: TextStyle(color: color,
               fontFamily: TextProvider.familyNunitoSans,
               package: 'style',
-              fontWeight: color == ColorProvider.greyFive
+          ),
+          children: [
+            TextSpan(
+              text: service.model.section!.title,
+                  style: TextStyle(color: color,
+                  fontFamily: TextProvider.familyNunitoSans,
+                  package: 'style',
+                  fontWeight: color == ColorProvider.greyFive
                   ? FontWeight.bold
                   : FontWeight.normal),
+            )]
         );
       } else {
         DateTime date = data.updatedAt;
