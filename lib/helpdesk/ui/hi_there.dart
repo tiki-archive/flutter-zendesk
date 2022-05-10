@@ -25,6 +25,6 @@ class HelpdeskUiHiThere extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontFamily: TextProvider.familyKoara,
                 package: 'tiki_style',
-                fontSize: SizeProvider.instance.size(28))));
+                fontSize: SizeProvider.instance.size(29))));
   }
 }
