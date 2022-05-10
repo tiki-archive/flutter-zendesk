@@ -1,3 +1,7 @@
+## 0.0.6
+
+* design fix
+
 ## 0.0.5
 
 * design update

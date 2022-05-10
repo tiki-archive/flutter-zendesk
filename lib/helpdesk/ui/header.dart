@@ -43,8 +43,8 @@ class HelpdeskUiHeader extends StatelessWidget {
               child: Text(_text,
                   style: TextStyle(
                       color: ColorProvider.tikiPurple,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: TextProvider.familyKoara,
+                      fontWeight: FontWeight.w800,
+                      fontFamily: TextProvider.familyNunitoSans,
                       package: 'tiki_style',
                       fontSize: SizeProvider.instance.size(16)))),
             GestureDetector(
