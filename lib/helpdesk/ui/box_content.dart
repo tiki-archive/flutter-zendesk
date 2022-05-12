@@ -68,7 +68,8 @@ class HelpdeskUiBoxContent extends StatelessWidget {
     return Padding(
         padding:EdgeInsets.only(top: SizeProvider.instance.size(10)),
         child: Text( content, style: const TextStyle(
-           fontFamily: TextProvider.familyNunitoSans,
+            fontFamily: TextProvider.familyNunitoSans,
+            package: 'tiki_style',
            fontWeight: FontWeight.w500,
           color: ColorProvider.tikiBlue
     )));
