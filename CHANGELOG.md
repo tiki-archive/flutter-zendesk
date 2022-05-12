@@ -1,3 +1,8 @@
+## 0.0.7
+
+* Update "published" font
+* Make dates US pattern
+
 ## 0.0.6
 
 * design fix

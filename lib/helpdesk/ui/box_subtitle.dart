@@ -51,14 +51,14 @@ class HelpdeskUiBoxSubtitle extends StatelessWidget {
           text: "published in ",
           style: TextStyle(color: color,
               fontFamily: TextProvider.familyNunitoSans,
-              package: 'style',
+              package: 'tiki_style',
           ),
           children: [
             TextSpan(
               text: service.model.section!.title,
                   style: TextStyle(color: color,
                   fontFamily: TextProvider.familyNunitoSans,
-                  package: 'style',
+                  package: 'tiki_style',
                   fontWeight: color == ColorProvider.greyFive
                   ? FontWeight.bold
                   : FontWeight.normal),
@@ -66,14 +66,15 @@ class HelpdeskUiBoxSubtitle extends StatelessWidget {
         );
       } else {
         DateTime date = data.updatedAt;
-        String publishedDate = DateFormat("dd MMMM yyyy").format(date);
+        String publishedDate = DateFormat.yMMMMd('en_US').format(date);
         return TextSpan(
           text: "published on $publishedDate",
           style: TextStyle(color: color,
+              fontSize: SizeProvider.instance.height(15),
               fontFamily: TextProvider.familyNunitoSans,
-              package: 'style',
-              fontWeight: color == ColorProvider.greyFive
-                  ? FontWeight.bold
+              package: 'tiki_style',
+              fontWeight: color == ColorProvider.greySix
+                  ? FontWeight.w600
                   : FontWeight.normal),
         );
       }
@@ -85,6 +86,6 @@ class HelpdeskUiBoxSubtitle extends StatelessWidget {
     if (data is HelpdeskCategory || data is HelpdeskSection) {
       return ColorProvider.blue;
     }
-    return ColorProvider.greyFive;
+    return ColorProvider.greySix;
   }
 }
